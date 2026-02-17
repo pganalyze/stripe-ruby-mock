@@ -435,6 +435,39 @@ module StripeMock
       }, params)
     end
 
+    def self.mock_subscription_schedule(params={})
+      StripeMock::Util.rmerge({
+        id: 'sub_sched_1',
+        object: 'subscription_schedule',
+        canceled_at: nil,
+        completed_at: nil,
+        created: 1648320110,
+        current_phase: nil,
+        customer: 'cus_test_customer',
+        default_settings: {
+          application_fee_percent: nil,
+          automatic_tax: { enabled: false },
+          billing_cycle_anchor: 'automatic',
+          billing_thresholds: nil,
+          collection_method: 'charge_automatically',
+          default_payment_method: nil,
+          default_source: nil,
+          invoice_settings: nil,
+          transfer_data: nil
+        },
+        end_behavior: 'release',
+        livemode: false,
+        metadata: {},
+        phases: [],
+        released_at: nil,
+        released_subscription: nil,
+        renewal_interval: nil,
+        status: 'not_started',
+        subscription: nil,
+        test_clock: nil
+      }, params)
+    end
+
     def self.mock_invoice(lines, params={})
       in_id = params[:id] || "test_in_default"
       currency = params[:currency] || StripeMock.default_currency
